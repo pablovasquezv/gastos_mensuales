@@ -1,7 +1,5 @@
-Aquí tienes una estructura profesional para tu `README.md`. He organizado la información para que sea clara, incluya las tecnologías utilizadas y los pasos para poner el proyecto en marcha.
-
 ```markdown
-# 🚀 Gastos Mensuales con Categorías (Django + Bootstrap)
+# 🚀 Gastos Mensuales con Categorías (Django + Bootstrap + CSS + JQUERY)
 
 Una aplicación web robusta y elegante diseñada para el control financiero personal. Permite gestionar gastos diarios, organizarlos por categorías y visualizar el balance mensual con una interfaz moderna y responsiva.
 
@@ -35,6 +33,11 @@ gastos_app/
 │   └── gastos/
 │       ├── css/           # Estilos personalizados (style.css)
 │       └── js/            # Lógica Frontend (main.js / Axios)
+├── templates/                # Recursos Estáticos
+│   └── gastos/
+│       ├── cear/           # Estilos personalizados (style.css)
+│       ├── editar/           # Estilos personalizados (style.css)
+│       └── listar/            # Lógica Frontend (main.js / Axios)
 └── requirements.txt       # Dependencias del sistema
 
 ```
