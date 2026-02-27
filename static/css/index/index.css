@@ -1,7 +1,267 @@
-git add . && git commit -m "
-feat: finalizar arquitectura base y sistema de gestión de gastos mensual.
+        /* FONDO ANIMADO GRADIENTE */
+        body {
+            min-height: 100vh;
+            background: linear-gradient(-45deg, #667eea, #764ba2, #f093fb, #f5576c);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            position: relative;
+            overflow-x: hidden;
+        }
 
-FILES:
-[ADD] templates/ (index.html)
-[ADD] static/ (css/index, js/index)
-" && git push
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* PARTICULAS FLOTANTES */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.08'%3E%3Ccircle cx='30' cy='30' r='3'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            z-index: 0;
+            animation: float 20s infinite linear;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+        }
+
+        /* NAVBAR GLASSMORPHISM */
+        .navbar-custom {
+            background: rgba(255, 255, 255, 0.12) !important;
+            backdrop-filter: blur(25px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .navbar-brand {
+            font-weight: 800;
+            font-size: 1.8rem;
+            background: linear-gradient(135deg, #fff, rgba(255,255,255,0.8));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            transition: all 0.3s ease;
+        }
+
+        .navbar-brand:hover {
+            transform: scale(1.05);
+        }
+
+        /* CONTENIDO PRINCIPAL */
+        .main-content {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 120px 20px 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* TARJETA PRINCIPAL HERO */
+        .hero-card {
+            background: rgba(255, 255, 255, 0.13);
+            backdrop-filter: blur(30px);
+            border-radius: 32px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 
+                0 32px 64px rgba(0, 0, 0, 0.2),
+                0 0 0 1px rgba(255, 255, 255, 0.1);
+            padding: 4rem 3rem;
+            max-width: 520px;
+            width: 100%;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .hero-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #fff, #f093fb, #667eea, #fff);
+            border-radius: 32px 32px 0 0;
+            animation: shimmer 3s infinite;
+        }
+
+        .hero-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 
+                0 48px 96px rgba(0, 0, 0, 0.3),
+                0 0 0 1px rgba(255, 255, 255, 0.2);
+        }
+
+        /* LOGO ANIMADO */
+        .wallet-logo {
+            width: 120px;
+            height: 120px;
+            background: conic-gradient(from 0deg, #667eea, #764ba2, #f093fb, #f5576c, #667eea);
+            border-radius: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2.5rem;
+            font-size: 4rem;
+            color: white;
+            box-shadow: 
+                0 24px 48px rgba(102, 126, 234, 0.4),
+                inset 0 2px 0 rgba(255, 255, 255, 0.3);
+            animation: logoFloat 6s ease-in-out infinite;
+        }
+
+        @keyframes logoFloat {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-12px) rotate(180deg); }
+        }
+
+        /* TIPOGRAFÍA PRINCIPAL */
+        .hero-title {
+            font-size: clamp(2.5rem, 6vw, 4.2rem);
+            font-weight: 900;
+            background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+        }
+
+        .hero-subtitle {
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 1.25rem;
+            font-weight: 400;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .hero-description {
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+            line-height: 1.7;
+            font-style: italic;
+        }
+
+        /* BOTÓN PRINCIPAL */
+        .btn-hero {
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+            border: none;
+            border-radius: 28px;
+            padding: 1.4rem 3rem;
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: #1e293b;
+            width: 100%;
+            height: 68px;
+            box-shadow: 
+                0 20px 40px rgba(255, 255, 255, 0.3),
+                0 8px 24px rgba(0, 0, 0, 0.2);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: left 0.6s;
+        }
+
+        .btn-hero:hover::before {
+            left: 100%;
+        }
+
+        .btn-hero:hover {
+            transform: translateY(-6px) scale(1.02);
+            box-shadow: 
+                0 32px 64px rgba(255, 255, 255, 0.4),
+                0 16px 32px rgba(0, 0, 0, 0.25);
+        }
+
+        .btn-hero:active {
+            transform: translateY(-2px) scale(1.01);
+        }
+
+        /* FOOTER INFO */
+        .access-info {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.95rem;
+            font-weight: 500;
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        /* ANIMACIÓN ENTRADA */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(60px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes shimmer {
+            0%, 100% { background-position: -200% 0; }
+            50% { background-position: 200% 0; }
+        }
+
+        .hero-card {
+            animation: fadeInUp 1s cubic-bezier(0.4, 0, 0.2, 1) 0.3s both;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .main-content {
+                padding: 100px 15px 40px;
+            }
+            
+            .hero-card {
+                margin: 1rem;
+                padding: 3rem 2rem;
+                border-radius: 24px;
+            }
+            
+            .wallet-logo {
+                width: 100px;
+                height: 100px;
+                font-size: 3.2rem;
+            }
+        }
+
+        /* CURSOR PERSONALIZADO */
+        * {
+            cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'><circle cx='16' cy='16' r='2' fill='%23fff'/></svg>") 16 16, auto;
+        }
+
+        .btn-hero:hover {
+            cursor: pointer;
+        }
