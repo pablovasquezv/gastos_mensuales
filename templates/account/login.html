@@ -12,19 +12,19 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- CSS -->
-    <link href="{% static 'css/login.css' %}" rel="stylesheet">
+    <link href="{% static 'css/login/login.css' %}" rel="stylesheet">
        <!-- Font Awesome para logo -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
     
     
     <!-- 2. WALLET GLOBAL (CRÍTICO - PRIMERO) -->
-    <script src="{% static 'js/utils.js' %}"></script>
+    <script src="{% static 'js/utils/utils.js' %}"></script>
     
     <!-- 3. jQuery (OPCIONAL - si lo necesitas) -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     
     <!-- 4. SCRIPTS PROPIOS -->
-    <script src="{% static 'js/login.js' %}"></script>
+    <script src="{% static 'js/login/login.js' %}"></script>
     
     <!-- 5. Bootstrap JS (SIEMPRE ÚLTIMO) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -84,7 +84,7 @@
                     </div>
 
                     <!-- Resto igual -->
-                    <button id="miBoton" type="#" data-login-url="{% url 'menu' %}" class="btn btn-login w-100 mb-4">
+                    <button id="miBoton" type="#" data-login-url="{% url 'home' %}" class="btn btn-login w-100 mb-4">
                         <i class="bi bi-box-arrow-in-right me-2"></i>Iniciar Sesión
                     </button>
                     <a id="miBoton" data-login-url="{% url 'inicio' %}" href="#" class="forgot-password text-center d-block mb-4">¿Olvidaste tu contraseña?</a>

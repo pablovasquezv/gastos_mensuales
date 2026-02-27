@@ -1,0 +1,128 @@
+:root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --success-color: #27ae60;
+            --danger-color: #e74c3c;
+            --warning-color: #f39c12;
+            --info-color: #17a2b8;
+            --light-bg: #f8f9fa;
+            --dark-text: #2c3e50;
+            --card-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+            --navbar-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+        }
+
+        * {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--light-bg) 0%, #e9ecef 100%);
+            min-height: 100vh;
+        }
+
+        /* NAVBAR PROFESIONAL */
+        .navbar-custom {
+            background: rgba(255, 255, 255, 0.98) !important;
+            backdrop-filter: blur(20px);
+            box-shadow: var(--navbar-shadow) !important;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            padding: 1rem 0;
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.75rem;
+            color: var(--primary-color) !important;
+            transition: all 0.3s ease;
+        }
+
+        .navbar-brand:hover {
+            color: var(--secondary-color) !important;
+            transform: scale(1.05);
+        }
+
+        .nav-link {
+            font-weight: 500;
+            color: var(--dark-text) !important;
+            padding: 0.75rem 1.25rem !important;
+            border-radius: 10px;
+            margin: 0 0.25rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            background: rgba(52, 152, 219, 0.1);
+            color: var(--secondary-color) !important;
+            transform: translateY(-2px);
+        }
+
+        .nav-link.active {
+            background: linear-gradient(135deg, var(--secondary-color), #2980b9);
+            color: white !important;
+            box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
+        }
+
+        /* MAIN CONTENT */
+        .main-container {
+            min-height: calc(100vh - 140px);
+            padding: 2rem 0;
+        }
+
+        /* FOOTER PROFESIONAL */
+        .footer-custom {
+            background: var(--primary-color);
+            color: white;
+            padding: 1.5rem 0;
+            margin-top: auto;
+        }
+
+        .footer-custom a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+        }
+
+        .footer-custom a:hover {
+            color: white;
+        }
+
+        /* CARDS */
+        .content-card {
+            background: white;
+            border-radius: 20px;
+            box-shadow: var(--card-shadow);
+            border: none;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .content-card:hover {
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            transform: translateY(-5px);
+        }
+
+        /* ALERTS MEJORADOS */
+        .alert {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        /* BOTONES */
+        .btn-custom {
+            border-radius: 12px;
+            font-weight: 600;
+            padding: 0.75rem 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .navbar-custom {
+                padding: 0.75rem;
+            }
+
+            .main-container {
+                padding: 1rem 0;
+            }
+        }

@@ -144,10 +144,3 @@ $(document).ready(function () {
 });
 
 
-git add . && git commit -m "
-feat: finalizar arquitectura base y sistema de gestión de gastos mensual.
-
-FILES:
-[ADD] templates/ (account/login.html)
-[ADD] static/ (css/login, js/login)
-" && git push
