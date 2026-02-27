@@ -1,13 +1,17 @@
 from django.shortcuts import render, redirect
-from .forms import CategoriaForm
 
+from apps import categorias
+from .forms import CategoriaForm
+from .models import Categoria
 # Create your views here.
 
 from django.http import HttpResponse
 # def inicio(request):
 #     return HttpResponse("Hola desde Django")    
 def index(request):
-    return render(request, 'listacategorias.html')
+    categorias = Categoria.objects.all()
+    # Debes agregar el diccionario de contexto como tercer argumento
+    return render(request, 'categoria/listacategorias.html', {'categorias': categorias})
 
 
 def crear_categoria(request):
