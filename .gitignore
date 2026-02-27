@@ -1,0 +1,25 @@
+# Python - Archivos temporales y compilados
+__pycache__/
+*.py[cod]
+*$py.class
+.env
+.venv
+env/
+venv/
+ENV/
+
+# Django - Archivos específicos
+db.sqlite3
+db.sqlite3-journal
+media/
+staticfiles/
+
+# IDEs y Editores
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
