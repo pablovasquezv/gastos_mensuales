@@ -1,0 +1,7 @@
+git add . && git commit -m "
+feat: finalizar arquitectura base y sistema de gestión de gastos mensual.
+
+FILES:
+[ADD] templates/ (index.html)
+[ADD] static/ (css/index, js/index)
+" && git push

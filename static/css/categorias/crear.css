@@ -1,10 +1,1 @@
-git add . && git commit -m "feat: finalizar arquitectura base y sistema de gestión de gastos mensual
 
-RELEVANT CHANGES:
-- App: Inicialización de aplicaciones modulares en el directorio `apps/`.
-- Routing: Configuración de URLconf global y delegación por aplicación.
-- UI/UX: Implementación de arquitectura de templates con herencia y carga de estáticos.
-- Project: Configuración de `settings.py` para soporte de múltiples aplicaciones y recursos globales.
-
-FILES:
-[ADD] apps/ (core, accounts)" && git push
