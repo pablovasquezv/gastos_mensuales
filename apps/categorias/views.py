@@ -20,7 +20,7 @@ def crear_categoria(request):
         form = CategoriaForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('home') # O a la lista de categorías
+            return redirect('lista_categorias') # O a la lista de categorías
     else:
         form = CategoriaForm()
     
