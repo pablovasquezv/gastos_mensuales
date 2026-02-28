@@ -16,7 +16,7 @@ Una aplicación web robusta y elegante diseñada para el control financiero pers
 
 ## 📁 Estructura del Proyecto
 
-El proyecto sigue una arquitectura modular, separando la lógica de negocio en la aplicación `gastos` y manteniendo los recursos estáticos centralizados.
+El proyecto sigue una arquitectura modular, separando la lógica de negocio en la aplicación `gastos` y manteniendo los recursos estáticos centralizados.Además se han aplicado una de las mejores prácticas de Django: el Namespacing de plantillas.Al crear una carpeta templates/ en la raíz (a la altura del proyecto) y organizar todos los archivos como account/login.html
 
 ```text
 gastos_app/
@@ -104,3 +104,26 @@ Este proyecto utiliza **Namespacing** para los templates y archivos estáticos (
 ¡Espero que este README le dé ese toque profesional a tu repositorio de GitHub! ¿Te gustaría que agreguemos alguna sección más específica?
 
 ```
+***
+
+## **📱 COMO USARLO:**
+
+1. **Copiar** todo el contenido
+2. **Crear** `README.md` en raíz del proyecto
+3. **Pegar** → `Ctrl + S`
+4. **Subir** a GitHub → **README renderizado hermoso** 🎉
+
+## 🤝 Contribuciones
+
+Las contribuciones son bienvenidas. Por favor, abre un issue para reportar bugs o sugerir mejoras. Envía pull requests para colaborar con nuevas funcionalidades o correcciones.
+
+## 👨‍💻 Autor
+
+**Juan Pablo Vásquez** – Proyecto desarrollado y mantenido.
+**Pablo** - [LinkedIn](https://www.linkedin.com/in/juan-pablo-vasquez-vasquez-8a9693206)  
+**Email**: vasquezsoftwaresolutions.com
+
+---
+
+#### Última actualización  
+*Juan Pablo Vásquez* - 27-02-2026

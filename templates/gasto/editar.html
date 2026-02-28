@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+{% block title %}Editar Gasto | GastosApp{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center fade-in">
+    <div class="col-md-6">
+        <div class="card border-0 shadow-lg mt-4">
+            <div class="card-header bg-warning text-dark p-4 border-0">
+                <h4 class="mb-0 fw-bold">
+                    <i class="fas fa-edit me-2"></i>Editar Gasto
+                </h4>
+                <p class="small mb-0 opacity-75">Modifica los detalles del movimiento registrado.</p>
+            </div>
+
+            <div class="card-body p-4 p-md-5">
+                <form method="POST" novalidate>
+                    {% csrf_token %}
+
+                    <div class="mb-4">
+                        <label class="form-label fw-bold">{{ form.categoria.label }}</label>
+                        {{ form.categoria }}
+                        {% if form.categoria.errors %}
+                            <div class="text-danger small">{{ form.categoria.errors }}</div>
+                        {% endif %}
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label fw-bold">{{ form.descripcion.label }}</label>
+                        {{ form.descripcion }}
+                        {% if form.descripcion.errors %}
+                            <div class="text-danger small">{{ form.descripcion.errors }}</div>
+                        {% endif %}
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label fw-bold">{{ form.monto.label }}</label>
+                        <div class="input-group">
+                            <span class="input-group-text bg-warning text-dark fw-bold">$</span>
+                            {{ form.monto }}
+                        </div>
+                        {% if form.monto.errors %}
+                            <div class="text-danger small">{{ form.monto.errors }}</div>
+                        {% endif %}
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label fw-bold">{{ form.fecha.label }}</label>
+                        {{ form.fecha }}
+                        {% if form.fecha.errors %}
+                            <div class="text-danger small">{{ form.fecha.errors }}</div>
+                        {% endif %}
+                    </div>
+
+                    <div class="d-grid gap-2 mt-5">
+                        <button type="submit" class="btn btn-warning btn-lg shadow-sm fw-bold">
+                            <i class="fas fa-check-circle me-2"></i>Actualizar Cambios
+                        </button>
+                        <a href="{% url 'lista_gastos' %}" class="btn btn-light border">
+                            Descartar y Volver
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+        <div class="text-center mt-3">
+            <small class="text-muted">
+                Registrado originalmente el: {{ gasto.creado_en|date:"d/m/Y H:i" }}
+            </small>
+        </div>
+    </div>
+</div>
+{% endblock %}

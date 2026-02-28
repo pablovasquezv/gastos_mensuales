@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}Gastos{% endblock %}
+
+{% block content %}
+<h2 class="text-center">Listado de Gastos</h2>
+<div class="container">
+    <a href="{% url 'agregar_gasto' %}" class="btn btn-primary mb-3">Agregar Gasto</a>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Nombre</th>
+                <th scope="col">Descripción</th>
+                <th scope="col">Monto</th>
+                <th scope="col">Fecha</th>
+                <th scope="col">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for gasto in gastos %}
+            <tr>
+                <td>{{ gasto.categoria }}</td>
+                <td>{{ gasto.descripcion }}</td>
+                <td>{{ gasto.monto }}</td>
+                <td>{{ gasto.fecha }}</td>
+                <td>
+                    <a href="{% url 'editar_gasto' gasto.id %}"  class="btn btn-sm btn-warning">Editar</a>
+                    <a href="{% url 'eliminar_gasto' gasto.id %}" class="btn btn-sm btn-danger" onclick="return confirm('¿Estás seguro de que deseas eliminar este Categoria?');">Eliminar</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
