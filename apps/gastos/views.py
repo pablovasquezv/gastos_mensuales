@@ -8,9 +8,13 @@ from .forms import GastoForm
 # def inicio(request):
 #     return HttpResponse("Hola desde Django")    
 
-def index(request):
+def indesx(request):
     gastos = Gasto.objects.all()
     # Debes agregar el diccionario de contexto como tercer argumento
+    return render(request, 'gasto/lista_gastos.html', {'gastos': gastos})
+
+def index(request):
+    gastos = Gasto.objects.filter(deleted_at__isnull=True)
     return render(request, 'gasto/lista_gastos.html', {'gastos': gastos})
 
 def agregar_gasto(request):

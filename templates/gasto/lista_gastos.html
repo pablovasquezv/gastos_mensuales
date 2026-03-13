@@ -25,7 +25,7 @@
                 <td>{{ gasto.fecha }}</td>
                 <td>
                     <a href="{% url 'editar_gasto' gasto.id %}"  class="btn btn-sm btn-warning">Editar</a>
-                    <a href="{% url 'eliminar_gasto' gasto.id %}" class="btn btn-sm btn-danger" onclick="return confirm('¿Estás seguro de que deseas eliminar este Categoria?');">Eliminar</a>
+                    <a href="{% url 'eliminar_gasto' gasto.id %}" class="btn btn-sm btn-danger" onclick="return confirm('¿Estás seguro de que deseas eliminar este Gasto?');">Eliminar</a>
                 </td>
             </tr>
             {% endfor %}

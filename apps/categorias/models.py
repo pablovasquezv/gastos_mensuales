@@ -10,10 +10,12 @@ class Categoria(models.Model):
         default='GASTO'
     )
     color = models.CharField(max_length=7, default='#10b981')  # Verde por defecto
-    creada_en = models.DateTimeField(auto_now_add=True)
+    created_at = models.DateTimeField(blank=True, null=True)
+    updated_at = models.DateTimeField(blank=True, null=True)
+    deleted_at = models.DateTimeField(blank=True, null=True)
 
     class Meta:
-        verbose_name_plural = "Categorías"
+        db_table = 'categoria'
 
     def __str__(self):
           return f"{self.nombre} - {self.tipo}"
