@@ -139,10 +139,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # settings.py Middleware
 
 # A dónde va el usuario después de loguearse con éxito
-LOGIN_REDIRECT_URL = 'inicio' 
+LOGIN_REDIRECT_URL = 'home' 
 
 # A dónde se envía al usuario si intenta entrar a una página protegida
 LOGIN_URL = 'login' 
 
 # A dónde va el usuario al cerrar sesión
-LOGOUT_REDIRECT_URL = 'login'
+LOGOUT_REDIRECT_URL = 'inicio'

@@ -47,14 +47,16 @@
                 </div>
 
                 <!-- Formulario SIN form-floating -->
-                <form id="loginForm" novalidate>
+                <form id="loginForm" method="POST" action="{% url 'login' %}">
+                    {% csrf_token %}
                     <!-- Email - SIN form-floating -->
                     <div class="mb-4">
                         <label for="email" class="form-label fw-semibold mb-2 d-block">
-                            <i class="bi bi-envelope me-2 text-primary"></i>Email
+                            <i class="bi bi-envelope me-2 text-primary"></i>Usuario
                         </label>
-                        <input type="email" class="form-control form-control-lg" id="email"
-                            placeholder="alkewallet@gmail.com" autocomplete="email" required>
+                        <input type="text" class="form-control form-control-lg" id="username"
+                            name="username"
+                            placeholder="usuario" autocomplete="username" required>
                     </div>
 
                     <!-- Password CON toggle - SIN form-floating -->
@@ -64,12 +66,21 @@
                         </label>
                         <!-- Input group de Bootstrap -->
                         <div class="input-group mb-4"> 
-                            <input type="password" class="form-control form-control-lg border-end-0" id="password"
+                            <input type="password" class="form-control form-control-lg border-end-0" id="password" 
+                                name="password"
                                 placeholder="••••••••" autocomplete="current-password" required>
                             <span class="input-group-text" id="togglePassword">
                                 <i class="bi bi-eye" id="passwordEye"></i> <!-- Icono ojo ABIERTO -->
                             </span>
                         </div>
+                            {% if messages %}
+                                {% for message in messages %}
+                                    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                                        {{ message }}
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    </div>
+                                {% endfor %}
+                            {% endif %}
                         <!-- 
                         <div class="input-group">
                             <input type="password" class="form-control form-control-lg border-end-0" id="password"
@@ -84,7 +95,10 @@
                     </div>
 
                     <!-- Resto igual -->
-                    <button id="miBoton" type="#" data-login-url="{% url 'home' %}" class="btn btn-login w-100 mb-4">
+                    <!-- <button id="miBoton" type="#" data-login-url="{% url 'home' %}" class="btn btn-login w-100 mb-4">
+                        <i class="bi bi-box-arrow-in-right me-2"></i>Iniciar Sesión
+                    </button> -->
+                    <button  type="submit" class="btn btn-login w-100 mb-4">
                         <i class="bi bi-box-arrow-in-right me-2"></i>Iniciar Sesión
                     </button>
                     <a id="miBoton" data-login-url="{% url 'inicio' %}" href="#" class="forgot-password text-center d-block mb-4">¿Olvidaste tu contraseña?</a>
