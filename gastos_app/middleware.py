@@ -23,6 +23,7 @@ class LoginRequieredMiddleware:
         public_paths = [
             login_url,
             reverse('register'),
+            reverse('login'),
             '/admin/',     # Permitir acceso al panel de administración (Django tiene su propia gestión)
             '/static/',    # Permitir carga de archivos CSS, JS e imágenes
             '/media/',     # Permitir carga de archivos subidos por usuarios
@@ -40,4 +41,4 @@ class LoginRequieredMiddleware:
             return redirect(f"{login_url}?next={request.path}")
 
         # 5. Si todo está en orden, permitimos que la petición continúe hacia la vista correspondiente.
-        return self.get_response(request)
+        return self.get_response(request)   
