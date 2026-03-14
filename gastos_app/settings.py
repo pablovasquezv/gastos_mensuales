@@ -50,6 +50,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'gastos_app.middleware.LoginRequieredMiddleware', # middleware personalizado para requerir login en todas las vistas excepto las especificadas como públicas
 ]
 
 ROOT_URLCONF = 'gastos_app.urls'
@@ -145,4 +146,4 @@ LOGIN_REDIRECT_URL = 'home'
 LOGIN_URL = 'login' 
 
 # A dónde va el usuario al cerrar sesión
-LOGOUT_REDIRECT_URL = 'inicio'
+LOGOUT_REDIRECT_URL = 'login'

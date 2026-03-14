@@ -9,7 +9,7 @@ def index(request):
     # return render(request, 'acount/student_list.html')
 
 
-@login_required
+
 def home(request):
     # Esta sí es privada (usando el decorador o el middleware)
     return render(request, 'core/home.html')
