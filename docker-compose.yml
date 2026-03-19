@@ -1,0 +1,30 @@
+services:
+  db-django:
+    image: postgres:15-alpine
+    container_name: db-django
+    environment:
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASS}
+    volumes:
+      - postgres_django_data:/var/lib/postgresql/data
+
+  web-django:
+    build: .
+    container_name: web-django
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    environment:
+      - DB_NAME=${DB_NAME}
+      - DB_USER=${DB_USER}
+      - DB_PASS=${DB_PASS}
+      - DB_HOST=db-django
+      - DB_PORT=5432
+    depends_on:
+      - db-django
+
+volumes:
+  postgres_django_data:

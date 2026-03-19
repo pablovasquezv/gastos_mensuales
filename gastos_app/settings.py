@@ -83,20 +83,34 @@ WSGI_APPLICATION = 'gastos_app.wsgi.application'
 #     }
 # }
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'gastos_app',
+#         'USER': 'postgres',
+#         'PASSWORD': 'admin.123',
+#         'HOST': 'localhost',
+#         'PORT': '5432',
+#         'OPTIONS': {
+#           'client_encoding': 'UTF8',
+#         }
+#     }
+# }
+import os
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'gastos_app',
-        'USER': 'postgres',
-        'PASSWORD': 'admin.123',
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'NAME': os.environ.get('DB_NAME', 'gastos_app'),
+        'USER': os.environ.get('DB_USER', 'postgres'),
+        'PASSWORD': os.environ.get('DB_PASS', 'admin.123'),
+        'HOST': os.environ.get('DB_HOST', 'localhost'), # <-- ¡ESTO ES LO CLAVE!
+        'PORT': os.environ.get('DB_PORT', '5432'),
         'OPTIONS': {
           'client_encoding': 'UTF8',
         }
     }
 }
-
 # Password validation
 # https://docs.djangoproject.com/en/6.0/ref/settings/#auth-password-validators
 
