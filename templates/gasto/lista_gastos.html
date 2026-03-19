@@ -17,6 +17,11 @@
             </tr>
         </thead>
         <tbody>
+            {% if not gastos %}
+            <tr>
+                <td colspan="5" class="text-center">No hay gastos disponibles.</td>
+            </tr>
+            {% else %}
             {% for gasto in gastos %}
             <tr>
                 <td>{{ gasto.categoria }}</td>
@@ -24,12 +29,18 @@
                 <td>{{ gasto.monto }}</td>
                 <td>{{ gasto.fecha }}</td>
                 <td>
-                    <a href="{% url 'editar_gasto' gasto.id %}"  class="btn btn-sm btn-warning">Editar</a>
-                    <a href="{% url 'eliminar_gasto' gasto.id %}" class="btn btn-sm btn-danger" onclick="return confirm('¿Estás seguro de que deseas eliminar este Gasto?');">Eliminar</a>
+                    <a href="{% url 'editar_gasto' gasto.id %}" class="btn btn-sm btn-warning">Editar</a>
+                    <a href="{% url 'eliminar_gasto' gasto.id %}" class="btn btn-sm btn-danger"
+                        onclick="return confirm('¿Estás seguro de que deseas eliminar este Gasto?');">Eliminar</a>
                 </td>
             </tr>
             {% endfor %}
+            {% endif %}
         </tbody>
     </table>
 </div>
 {% endblock %}
+<!-- 
+Validar que se inserten los gastos desde excel 
+Validar que data sea la correcta 
+-->
